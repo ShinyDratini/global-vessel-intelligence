@@ -107,9 +107,79 @@ global-vessel-intelligence/
 └── README.md
 ```
 
+## Phase 1 - Initial Research Results
+
+### Live AIS Data Collection
+
+The initial data collection engine successfully established
+a WebSocket connection to AISStream and collected vessel
+position reports across the Singapore Strait.
+
+| Metric | Result |
+|---|---:|
+| Collection Duration | 5 minutes |
+| AIS Position Reports | 211 |
+| Unique Vessels | 171 |
+| Stationary Vessels | 125 |
+| Moving Vessels | 45 |
+| Unknown Movement Status | 1 |
+| Movement Classification Coverage | 99.42% |
+
+### Vessel Movement Analysis
+
+| Movement Classification | Vessel Count | Percentage |
+|---|---:|---:|
+| Stationary | 125 | 73.10% |
+| Cruising | 23 | 13.45% |
+| Slow Moving | 21 | 12.28% |
+| High Speed | 1 | 0.58% |
+| Unknown | 1 | 0.58% |
+
+### AIS Data Quality Assessment
+
+A rule-based validation framework was developed to
+compare reported AIS navigation status against
+speed-based vessel movement classifications.
+
+| Potential Inconsistency | Vessel Count |
+|---|---:|
+| Underway but Stationary | 46 |
+| Anchored but Moving | 2 |
+| Moored but Moving | 5 |
+| Total Flagged Observations | 53 |
+| Percentage Flagged | 30.99% |
+
+### Geospatial Intelligence
+
+Implemented interactive Folium maps featuring:
+
+- Vessel position tracking
+- Colour-coded movement classifications
+- Interactive vessel information popups
+- Vessel movement filters
+- Maritime traffic density heatmaps
+- Fullscreen navigation
+- Geographical distance measurement
+- HTML map exports
+
+### Business Insights
+
+The preliminary analysis highlights the importance
+of combining vessel speed, reported navigation status
+and geographical information when developing maritime
+operational intelligence.
+
+### Research Limitations
+
+- Results are based on a five-minute AIS snapshot.
+- AIS coverage may not represent all vessels in the region.
+- Navigation consistency flags do not establish reporting errors.
+- Vessel density alone does not establish port congestion.
+- Historical vessel trajectories are required for further validation.
+
 ## Development Roadmap
 
-- [ ] Phase 1 - Project Initialisation and AIS Data Collection
+- [x] Phase 1 - Project Initialisation and AIS Data Collection
 - [ ] Phase 2 - Database Design and ETL Pipeline
 - [ ] Phase 3 - Interactive Vessel Tracking
 - [ ] Phase 4 - Port Congestion Analytics
